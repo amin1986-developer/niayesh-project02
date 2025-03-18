@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>💖 For my Love 💖</title>
+    <style>
+
+        @font-face {
+            font-family: 'vazir';
+            src: url(./font/vazir-font-v16.1.0/Vazir-Medium.eot),
+            url(./font/vazir-font-v16.1.0/Vazir-Medium.ttf),
+            url(./font/vazir-font-v16.1.0/Vazir-Medium.woff),
+            url(./font/vazir-font-v16.1.0/Vazir-Medium.woff2);
+        }
+
+        body {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #FFB0B0;
+            font-family: 'vazir', Arial, sans-serif;
+            overflow: hidden;
+        }
+
+        .main {
+            display: none;
+            width: 80%;
+        }
+
+        #title{
+            text-align: center;
+        }
+        
+        .text{
+            margin-bottom: 3rem;
+            font-size: 3rem;
+            color: #091057;
+        }
+
+        .message {
+            color: #433878;
+            text-align: center;
+            margin-bottom: 3rem;
+            line-height: 1.8rem;
+            border: 3px solid rgba(0, 0, 0, 0.7);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(100vh);
+            }
+        }
+
+        .flower {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-image: url('./images/icons8-flower-96.png'); 
+            background-size: cover;
+            animation: fall linear infinite;
+        }
+
+        .btn{
+            text-decoration: none;
+            padding: 1rem 1.8rem;
+            border-radius: 30px;
+            color: #fff;
+            letter-spacing: 1px;
+            background: #7E60BF;
+        }
+
+    </style>
+</head>
+<body class="flex justify-center items-center w-full h-screen">
+
+    <div id="title" class="p-12 rounded-xl bg-[#FFD1D1]"> 
+        <h1 class="text-3xl mb-14 text-purple-900">For my Love❤️</h1>
+        <a href="#" class="btn" id="btn">Click babe</a> 
+    </div>
+
+    <div class="main " id="main">
+        <p id="message" class="message p-12 text-md rounded-xl bg-[#FFD1D1] text-center m-auto font-thin">
+            میخام اینو بدونی 
+            که تو شدی همه زندگیم.
+            شدی همه‌ی قلبم.
+            شدی همه‌ی وجودم.
+            میخام اینو بدونی که دیوانه وار دوست دارم.
+            من همه ی حسای قشنگو با تو تجربه کردم.
+            نگاهات،دستات،بغلت.
+            با اومدن تو توی زندگیم فهمیدم
+            قبل تو هیچوقت عاشق نشدم.
+            تو فراموش نشدنی ترین حس دنیای منی.
+            تو تنها خواسته ی من از خدایی.
+            لبخند تو بیشتر از هرچیزی برام جذابه.
+            همیشه بخند.
+            خیلی حرفا دارم ولی همینقدر‌بگم که
+            دیوانه وار عاشقتم
+        </p> 
+    </div>
+
+    <audio autoplay loop id="loveSong">
+        <source src="./song/Foregin-song.mp3" type="audio/mpeg">
+    </audio>
+
+<script>
+
+
+let btn = document.getElementById('btn');
+const title = document.getElementById('title');
+btn.addEventListener("click", (e) => {
+    e.preventDefault();
+    document.getElementById('main').style.display = "table";
+    title.style.display = "none";
+
+    function createFlowers() {
+    const flower = document.createElement('div');
+    flower.className = 'flower';
+    flower.style.left = Math.random() * window.innerWidth + 'px';
+    flower.style.animationDuration = Math.random() * 3 + 2 + 's'; 
+    document.body.appendChild(flower);
+
+
+    flower.addEventListener('animationend', () => {
+        flower.remove();
+    });
+}
+    setInterval(createFlowers, 500);
+
+    const loveSong = document.getElementById('loveSong');
+    loveSong.play();
+})
+</script>
+
+</body>
+</html>
